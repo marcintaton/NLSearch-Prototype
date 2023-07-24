@@ -10,6 +10,8 @@ namespace NLSearchWeb.src.NLSE
     {
         public async Task<string> ProcessQuery(string query)
         {
+            Console.WriteLine("\n----------------------------------");
+
             await DbHelper.Init();
 
             // parsing
