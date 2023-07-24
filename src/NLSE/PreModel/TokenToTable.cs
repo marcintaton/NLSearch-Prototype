@@ -9,13 +9,12 @@ namespace NLSearchWeb.src.NLSE.PreModel
     public class TokenToTable : TokenTo
     {
         public string _tableName { get; set; }
-        public int _dlDistance = -1;
+        public float _distance = -1;
 
-        public TokenToTable(string token, string tableName) : base(token)
+        public TokenToTable(string token, string tableName, float distance = -1) : base(token)
         {
             _tableName = tableName;
-
-            _dlDistance = DamerauLevenshtein.GetDistance(token, tableName);
+            _distance = distance;
         }
     }
 }

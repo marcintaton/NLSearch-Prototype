@@ -2,6 +2,7 @@ using System.Text.Json;
 using NLSearchWeb.src.NLSE.Model;
 using NLSearchWeb.src.NLSE.PreModel;
 using NLSearchWeb.src.Utilities;
+using NLSearchWeb.src.Utilities.DB;
 
 namespace NLSearchWeb.src.NLSE
 {
@@ -9,69 +10,36 @@ namespace NLSearchWeb.src.NLSE
     {
         public async Task<string> ProcessQuery(string query)
         {
+            await DbHelper.Init();
+
             // parsing
             var nlp = new NLP();
 
-            var poi = nlp.GetPointsOfInterest(query);
-
-            foreach (var p in poi)
-            {
-                Console.WriteLine(p);
-            }
+            var poi = await nlp.GetPointsOfInterest(query);
 
             if (poi.Count == 0) return "";
-
-            // translation
-            // could be done with one request - up to 10 words (I think)
-            var tokenTranslations = new List<TokenTranslation>();
-
-            foreach (var p in poi)
-            {
-                var t = new TokenTranslation(p);
-                await t.Translate();
-
-                tokenTranslations.Add(t);
-            }
 
             // pre model
             var preModel = new PreModelDef();
 
-            // totally arbitral number - has a huge impast on how query works
-            var maxDiff = 2;
-
-            foreach (var tt in tokenTranslations)
+            foreach (var p in poi)
             {
-                var inserted = false;
+                var table = DbHelper.FindTable(p, nlp.lastLang.ToString());
+                var column = DbHelper.FindColumn(p, nlp.lastLang.ToString());
 
-                foreach (var t in tt.wordList)
+                if (table != null)
                 {
-                    for (int i = 0; i < DbHelper.tables.Count; i++)
-                    {
-                        if (DamerauLevenshtein.GetDistance(t, DbHelper.tables[i]) <= maxDiff)
-                        {
-                            inserted = true;
-                            preModel.tables.Add(new TokenToTable(t, DbHelper.tables[i]));
-                        }
-
-                        foreach (var c in DbHelper.columns[i])
-                        {
-                            if (DamerauLevenshtein.GetDistance(t, c) <= maxDiff)
-                            {
-                                inserted = true;
-
-                                preModel.columns.Add(new TokenToColumn(t, c, DbHelper.tables[i]));
-                            }
-                        }
-                    }
+                    preModel.tables.Add(table);
                 }
 
-
-                if (!inserted)
+                if (column != null)
                 {
-                    foreach (var t in tt.wordList)
-                    {
-                        preModel.values.Add(new TokenToValue(t, t));
-                    }
+                    preModel.columns.Add(column);
+                }
+
+                if (table == null && column == null)
+                {
+                    preModel.values.Add(new TokenToValue(p, p));
                 }
             }
 
@@ -80,13 +48,13 @@ namespace NLSearchWeb.src.NLSE
             Console.WriteLine("\nTables");
             foreach (var x in preModel.tables)
             {
-                Console.WriteLine(x._token + " " + x._tableName + " " + x._dlDistance);
+                Console.WriteLine(x._token + " " + x._tableName + " " + x._distance);
             }
 
             Console.WriteLine("\nColumns");
             foreach (var x in preModel.columns)
             {
-                Console.WriteLine(x._token + " " + x._tableName + " " + x._columnName + " " + x._dlDistance);
+                Console.WriteLine(x._token + " " + x._tableName + " " + x._columnName + " " + x._distance);
             }
 
             Console.WriteLine("\nValues");
@@ -131,7 +99,7 @@ namespace NLSearchWeb.src.NLSE
             // prep result
             var result = new QueryResult
             {
-                Translations = tokenTranslations.ToArray(),
+                Translations = null,
                 sqlQueries = sqlQueries.ToArray()
             };
 

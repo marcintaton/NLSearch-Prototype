@@ -25,7 +25,7 @@ namespace NLSearchWeb.src.Controllers
             var json = JsonConvert.SerializeObject(new TranslationQueryText { Text = query });
             var data = new StringContent(json, Encoding.UTF8, "application/json");
 
-            data.Headers.Add("Ocp-Apim-Subscription-Key", "ba025998e6bc430b8b76981a6ad7e8a2");
+            data.Headers.Add("Ocp-Apim-Subscription-Key", "19f4eb52d69d47e0882e73a352c2d682");
             data.Headers.Add("Ocp-Apim-Subscription-Region", "westeurope");
 
             var client = new HttpClient();

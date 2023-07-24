@@ -1,22 +1,30 @@
 
 using Catalyst;
+using Catalyst.Models;
 using Mosaik.Core;
 
 namespace NLSearchWeb.src.NLSE
 {
     public class NLP
     {
+        public Language lastLang;
+
         public NLP()
         {
             Catalyst.Models.Polish.Register();
+            Catalyst.Models.English.Register();
             Storage.Current = new DiskStorage("catalyst-models");
         }
 
-        public List<string> GetPointsOfInterest(string input)
+        public async Task<List<string>> GetPointsOfInterest(string input)
         {
-            var nlp = Pipeline.For(Language.Polish);
+            // not very reliable on short texts which is a concern
+            var cld2LanguageDetector = await LanguageDetector.FromStoreAsync(Language.Any, Mosaik.Core.Version.Latest, "");
+            var doc = new Document(input);
+            cld2LanguageDetector.Process(doc);
 
-            var doc = new Document(input, Language.Polish);
+            Console.WriteLine(doc.Language);
+            var nlp = Pipeline.For(doc.Language);
 
             nlp.ProcessSingle(doc);
 
@@ -34,6 +42,8 @@ namespace NLSearchWeb.src.NLSE
                         pointsOfInterest.Add(token.Value);
                 }
             }
+
+            lastLang = doc.Language;
 
             return pointsOfInterest;
         }

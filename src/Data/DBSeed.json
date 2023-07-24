@@ -1,0 +1,115 @@
+{
+    "Tables": [
+        {
+            "Title": {
+                "Origin": "Movies",
+                "Pools": [
+                    {
+                        "Language": "Polish",
+                        "Pool": [
+                            "film",
+                            "kino",
+                            "ekranizacja",
+                            "produkcja",
+                            "obraz",
+                            "wideo"
+                        ]
+                    },
+                    {
+                        "Language": "English",
+                        "Pool": [
+                            "movie",
+                            "film",
+                            "picture",
+                            "cinema",
+                            "blockbuster"
+                        ]
+                    }
+                ]
+            },
+            "Columns": [
+                {
+                    "Origin": "Id",
+                    "Pools": [
+                        {
+                            "Language": "Polish",
+                            "Pool": [
+                                "Id"
+                            ]
+                        },
+                        {
+                            "Language": "English",
+                            "Pool": [
+                                "Id"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "Origin": "Title",
+                    "Pools": [
+                        {
+                            "Language": "Polish",
+                            "Pool": [
+                                "tytuł",
+                                "nazwa",
+                                "nagłówek"
+                            ]
+                        },
+                        {
+                            "Language": "English",
+                            "Pool": [
+                                "title",
+                                "name",
+                                "subtitle"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "Origin": "Genre",
+                    "Pools": [
+                        {
+                            "Language": "Polish",
+                            "Pool": [
+                                "gatunek",
+                                "rodzaj",
+                                "kategoria",
+                                "typ"
+                            ]
+                        },
+                        {
+                            "Language": "English",
+                            "Pool": [
+                                "genre",
+                                "category",
+                                "style"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "Origin": "Premiered",
+                    "Pools": [
+                        {
+                            "Language": "Polish",
+                            "Pool": [
+                                "premiera",
+                                "wydanie",
+                                "czas premiery",
+                                "czas wydania"
+                            ]
+                        },
+                        {
+                            "Language": "English",
+                            "Pool": [
+                                "premiere",
+                                "release"
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
