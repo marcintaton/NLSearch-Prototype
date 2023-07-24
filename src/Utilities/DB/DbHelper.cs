@@ -47,16 +47,16 @@ namespace NLSearchWeb.src.Utilities.DB
 
             if (results.Count > 0)
             {
-                results.Sort((a, b) => (int)((b._distance - a._distance) * 1000));
+                results.Sort((a, b) => (int)((b._similarity - a._similarity) * 1000));
 
-                Console.WriteLine();
-                Console.WriteLine("Tables " + token);
-                foreach (var c in results)
-                {
-                    Console.WriteLine(c._distance);
-                }
+                // Console.WriteLine();
+                // Console.WriteLine("Tables " + token);
+                // foreach (var c in results)
+                // {
+                //     Console.WriteLine(c._similarity);
+                // }
 
-                if (results[0]._distance >= 0.7)
+                if (results[0]._similarity >= 0.7)
                     return results[0];
             }
 
@@ -84,16 +84,16 @@ namespace NLSearchWeb.src.Utilities.DB
 
             if (results.Count > 0)
             {
-                results.Sort((a, b) => (int)((b._distance - a._distance) * 1000));
+                results.Sort((a, b) => (int)((b._similarity - a._similarity) * 1000));
 
-                Console.WriteLine();
-                Console.WriteLine("Columns " + token);
-                foreach (var c in results)
-                {
-                    Console.WriteLine(c._distance);
-                }
+                // Console.WriteLine();
+                // Console.WriteLine("Columns " + token);
+                // foreach (var c in results)
+                // {
+                //     Console.WriteLine(c._similarity);
+                // }
 
-                if (results[0]._distance >= 0.7)
+                if (results[0]._similarity >= 0.7)
                     return results[0];
             }
 

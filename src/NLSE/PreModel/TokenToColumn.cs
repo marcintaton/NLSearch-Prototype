@@ -11,14 +11,14 @@ namespace NLSearchWeb.src.NLSE.PreModel
     {
         public string _tableName { get; set; }
         public string _columnName { get; set; }
-        public float _distance = -1;
+        public float _similarity = -1;
 
 
-        public TokenToColumn(string token, string columnName, string tableName = null, float distance = -1) : base(token)
+        public TokenToColumn(string token, string columnName, string tableName = null, float similarity = -1) : base(token)
         {
             _columnName = columnName;
             _tableName = tableName;
-            _distance = distance;
+            _similarity = similarity;
         }
     }
 }

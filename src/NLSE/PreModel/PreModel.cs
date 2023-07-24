@@ -14,8 +14,8 @@ namespace NLSearchWeb.src.NLSE
 
         public void Sort()
         {
-            tables.Sort((a, b) => (int)((a._distance - b._distance) * 1000));
-            columns.Sort((a, b) => (int)((a._distance - b._distance) * 1000));
+            tables.Sort((a, b) => (int)((a._similarity - b._similarity) * 1000));
+            columns.Sort((a, b) => (int)((a._similarity - b._similarity) * 1000));
         }
     }
 }

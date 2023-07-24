@@ -48,19 +48,19 @@ namespace NLSearchWeb.src.NLSE
             Console.WriteLine("\nTables");
             foreach (var x in preModel.tables)
             {
-                Console.WriteLine(x._token + " " + x._tableName + " " + x._distance);
+                Console.WriteLine("Token: " + x._token + " :: Table: " + x._tableName + ", Similarity: " + x._similarity);
             }
 
             Console.WriteLine("\nColumns");
             foreach (var x in preModel.columns)
             {
-                Console.WriteLine(x._token + " " + x._tableName + " " + x._columnName + " " + x._distance);
+                Console.WriteLine("Token: " + x._token + " :: Table: " + x._tableName + ", Column: " + x._columnName + ", Similarity: " + x._similarity);
             }
 
             Console.WriteLine("\nValues");
             foreach (var x in preModel.values)
             {
-                Console.WriteLine(x._value);
+                Console.WriteLine("Token: " + x._token + " :: Value: " + x._value);
             }
 
 
