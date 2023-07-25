@@ -110,6 +110,107 @@
                     ]
                 }
             ]
+        },
+        {
+            "Title": {
+                "Origin": "Users",
+                "Pools": [
+                    {
+                        "Language": "Polish",
+                        "Pool": [
+                            "użytkownik",
+                            "klient",
+                            "odbiorca",
+                            "user"
+                        ]
+                    },
+                    {
+                        "Language": "English",
+                        "Pool": [
+                            "user",
+                            "customer",
+                            "end user"
+                        ]
+                    }
+                ]
+            },
+            "Columns": [
+                {
+                    "Origin": "Id",
+                    "Pools": [
+                        {
+                            "Language": "Polish",
+                            "Pool": [
+                                "Id"
+                            ]
+                        },
+                        {
+                            "Language": "English",
+                            "Pool": [
+                                "Id"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "Origin": "Username",
+                    "Pools": [
+                        {
+                            "Language": "Polish",
+                            "Pool": [
+                                "nazwa użytkownika",
+                                "nazwa",
+                                "login"
+                            ]
+                        },
+                        {
+                            "Language": "English",
+                            "Pool": [
+                                "username",
+                                "name",
+                                "login"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "Origin": "Name",
+                    "Pools": [
+                        {
+                            "Language": "Polish",
+                            "Pool": [
+                                "imię",
+                                "nazwa"
+                            ]
+                        },
+                        {
+                            "Language": "English",
+                            "Pool": [
+                                "username",
+                                "name"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "Origin": "Surname",
+                    "Pools": [
+                        {
+                            "Language": "Polish",
+                            "Pool": [
+                                "nazwisko",
+                                "godność"
+                            ]
+                        },
+                        {
+                            "Language": "English",
+                            "Pool": [
+                                "surname"
+                            ]
+                        }
+                    ]
+                }
+            ]
         }
     ]
 }
