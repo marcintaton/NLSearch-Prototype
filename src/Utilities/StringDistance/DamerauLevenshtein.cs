@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace NLSearchWeb.src.Utilities
+namespace NLSearchWeb.src.Utilities.StringDistance
 {
-    public class DamerauLevenshtein
+    public class DamerauLevenshtein : IStringComparator
     {
         public static int GetDistance(string a, string b)
         {
@@ -41,6 +41,14 @@ namespace NLSearchWeb.src.Utilities
                 }
             }
             return matrix[len_a, len_b];
+        }
+
+        public static float GetDistanceNormalized(string a, string b)
+        {
+            float dl = GetDistance(a, b);
+
+            var normalized = 1f - (float)(dl / Math.Max(a.Length, b.Length));
+            return normalized;
         }
     }
 }
