@@ -31,7 +31,7 @@ namespace NLSearchWeb.src.Utilities.DB
             DBStructure = data;
         }
 
-        public static TokenToTable FindTable(string token, string language)
+        public static List<TokenToTable> CompareTables(string token, string language)
         {
             var results = new List<TokenToTable>();
 
@@ -55,15 +55,12 @@ namespace NLSearchWeb.src.Utilities.DB
                 // {
                 //     Console.WriteLine(c._similarity);
                 // }
-
-                if (results[0]._similarity >= 0.7)
-                    return results[0];
             }
 
-            return null;
+            return results;
         }
 
-        public static TokenToColumn FindColumn(string token, string language)
+        public static List<TokenToColumn> CompareColumns(string token, string language)
         {
             var results = new List<TokenToColumn>();
 
@@ -80,8 +77,6 @@ namespace NLSearchWeb.src.Utilities.DB
                 }
             }
 
-
-
             if (results.Count > 0)
             {
                 results.Sort((a, b) => (int)((b._similarity - a._similarity) * 1000));
@@ -92,12 +87,9 @@ namespace NLSearchWeb.src.Utilities.DB
                 // {
                 //     Console.WriteLine(c._similarity);
                 // }
-
-                if (results[0]._similarity >= 0.7)
-                    return results[0];
             }
 
-            return null;
+            return results;
         }
     }
 }

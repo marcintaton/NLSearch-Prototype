@@ -26,20 +26,23 @@ namespace NLSearchWeb.src.NLSE
 
             foreach (var p in poi)
             {
-                var table = DbHelper.FindTable(p, nlp.lastLang.ToString());
-                var column = DbHelper.FindColumn(p, nlp.lastLang.ToString());
+                var tables = DbHelper.CompareTables(p, nlp.lastLang.ToString());
+                var columns = DbHelper.CompareColumns(p, nlp.lastLang.ToString());
 
-                if (table != null)
-                {
-                    preModel.tables.Add(table);
-                }
+                // ---------------------------------------------------------------------------
+                // absolutely arbitrary magic number with huge impact,
+                // that filters garbage from actual results.
+                // Should be replaced with a proper, more complicated heuristic 
+                var similarityFilter = 0.7f;
+                var filteredTables = tables.Where(x => x._similarity >= similarityFilter).ToList();
+                var filteredColumns = columns.Where(x => x._similarity >= similarityFilter).ToList();
+                // ---------------------------------------------------------------------------
 
-                if (column != null)
-                {
-                    preModel.columns.Add(column);
-                }
+                preModel.tables.AddRange(filteredTables);
+                preModel.columns.AddRange(filteredColumns);
 
-                if (table == null && column == null)
+
+                if (filteredTables.Count == 0 && filteredColumns.Count == 0)
                 {
                     preModel.values.Add(new TokenToValue(p, p));
                 }
@@ -47,23 +50,24 @@ namespace NLSearchWeb.src.NLSE
 
             preModel.Sort();
 
+            // ----------------------------------------------------------------
+            // show pre-model results
             Console.WriteLine("\nTables");
             foreach (var x in preModel.tables)
             {
                 Console.WriteLine("Token: " + x._token + " :: Table: " + x._tableName + ", Similarity: " + x._similarity);
             }
-
             Console.WriteLine("\nColumns");
             foreach (var x in preModel.columns)
             {
                 Console.WriteLine("Token: " + x._token + " :: Table: " + x._tableName + ", Column: " + x._columnName + ", Similarity: " + x._similarity);
             }
-
             Console.WriteLine("\nValues");
             foreach (var x in preModel.values)
             {
                 Console.WriteLine("Token: " + x._token + " :: Value: " + x._value);
             }
+            // ----------------------------------------------------------------
 
 
             // model
