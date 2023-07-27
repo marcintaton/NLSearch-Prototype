@@ -81,6 +81,12 @@ namespace NLSearchWeb.src.NLSE
                 {
                     foreach (var v in preModel.values)
                     {
+                        // only add binds with matching type
+                        var matchingTables = DbHelper.GetColumnsForValue(v._value);
+
+                        var res = matchingTables.Find(x => x.columnName == c._columnName && x.tableName == t._tableName);
+                        if (res == null) continue;
+
                         var model = new Model.Model();
                         model.binds.Add(new ModelBind
                         {

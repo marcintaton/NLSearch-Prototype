@@ -29,85 +29,105 @@
             },
             "Columns": [
                 {
-                    "Origin": "Id",
-                    "Pools": [
-                        {
-                            "Language": "Polish",
-                            "Pool": [
-                                "Id"
-                            ]
-                        },
-                        {
-                            "Language": "English",
-                            "Pool": [
-                                "Id"
-                            ]
-                        }
-                    ]
+                    "ValueTags": [
+                        "Number"
+                    ],
+                    "Title": {
+                        "Origin": "Id",
+                        "Pools": [
+                            {
+                                "Language": "Polish",
+                                "Pool": [
+                                    "Id"
+                                ]
+                            },
+                            {
+                                "Language": "English",
+                                "Pool": [
+                                    "Id"
+                                ]
+                            }
+                        ]
+                    }
                 },
                 {
-                    "Origin": "Title",
-                    "Pools": [
-                        {
-                            "Language": "Polish",
-                            "Pool": [
-                                "tytuł",
-                                "nazwa",
-                                "nagłówek"
-                            ]
-                        },
-                        {
-                            "Language": "English",
-                            "Pool": [
-                                "title",
-                                "name",
-                                "subtitle"
-                            ]
-                        }
-                    ]
+                    "ValueTags": [
+                        "Text"
+                    ],
+                    "Title": {
+                        "Origin": "Title",
+                        "Pools": [
+                            {
+                                "Language": "Polish",
+                                "Pool": [
+                                    "tytuł",
+                                    "nazwa",
+                                    "nagłówek"
+                                ]
+                            },
+                            {
+                                "Language": "English",
+                                "Pool": [
+                                    "title",
+                                    "name",
+                                    "subtitle"
+                                ]
+                            }
+                        ]
+                    }
                 },
                 {
-                    "Origin": "Genre",
-                    "Pools": [
-                        {
-                            "Language": "Polish",
-                            "Pool": [
-                                "gatunek",
-                                "rodzaj",
-                                "kategoria",
-                                "typ"
-                            ]
-                        },
-                        {
-                            "Language": "English",
-                            "Pool": [
-                                "genre",
-                                "category",
-                                "style"
-                            ]
-                        }
-                    ]
+                    "ValueTags": [
+                        "Text"
+                    ],
+                    "Title": {
+                        "Origin": "Genre",
+                        "Pools": [
+                            {
+                                "Language": "Polish",
+                                "Pool": [
+                                    "gatunek",
+                                    "rodzaj",
+                                    "kategoria",
+                                    "typ"
+                                ]
+                            },
+                            {
+                                "Language": "English",
+                                "Pool": [
+                                    "genre",
+                                    "category",
+                                    "style"
+                                ]
+                            }
+                        ]
+                    }
                 },
                 {
-                    "Origin": "Premiered",
-                    "Pools": [
-                        {
-                            "Language": "Polish",
-                            "Pool": [
-                                "premiera",
-                                "wydanie",
-                                "czas premiery",
-                                "czas wydania"
-                            ]
-                        },
-                        {
-                            "Language": "English",
-                            "Pool": [
-                                "premiere",
-                                "release"
-                            ]
-                        }
-                    ]
+                    "ValueTags": [
+                        "Date"
+                    ],
+                    "Title": {
+                        "Origin": "Premiered",
+                        "Pools": [
+                            {
+                                "Language": "Polish",
+                                "Pool": [
+                                    "premiera",
+                                    "wydanie",
+                                    "czas premiery",
+                                    "czas wydania"
+                                ]
+                            },
+                            {
+                                "Language": "English",
+                                "Pool": [
+                                    "premiere",
+                                    "release"
+                                ]
+                            }
+                        ]
+                    }
                 }
             ]
         },
@@ -136,79 +156,99 @@
             },
             "Columns": [
                 {
-                    "Origin": "Id",
-                    "Pools": [
-                        {
-                            "Language": "Polish",
-                            "Pool": [
-                                "Id"
-                            ]
-                        },
-                        {
-                            "Language": "English",
-                            "Pool": [
-                                "Id"
-                            ]
-                        }
-                    ]
+                    "ValueTags": [
+                        "Number"
+                    ],
+                    "Title": {
+                        "Origin": "Id",
+                        "Pools": [
+                            {
+                                "Language": "Polish",
+                                "Pool": [
+                                    "Id"
+                                ]
+                            },
+                            {
+                                "Language": "English",
+                                "Pool": [
+                                    "Id"
+                                ]
+                            }
+                        ]
+                    }
                 },
                 {
-                    "Origin": "Username",
-                    "Pools": [
-                        {
-                            "Language": "Polish",
-                            "Pool": [
-                                "nazwa użytkownika",
-                                "nazwa",
-                                "login"
-                            ]
-                        },
-                        {
-                            "Language": "English",
-                            "Pool": [
-                                "username",
-                                "name",
-                                "login"
-                            ]
-                        }
-                    ]
+                    "ValueTags": [
+                        "Text"
+                    ],
+                    "Title": {
+                        "Origin": "Username",
+                        "Pools": [
+                            {
+                                "Language": "Polish",
+                                "Pool": [
+                                    "nazwa użytkownika",
+                                    "nazwa",
+                                    "login"
+                                ]
+                            },
+                            {
+                                "Language": "English",
+                                "Pool": [
+                                    "username",
+                                    "name",
+                                    "login"
+                                ]
+                            }
+                        ]
+                    }
                 },
                 {
-                    "Origin": "Name",
-                    "Pools": [
-                        {
-                            "Language": "Polish",
-                            "Pool": [
-                                "imię",
-                                "nazwa"
-                            ]
-                        },
-                        {
-                            "Language": "English",
-                            "Pool": [
-                                "username",
-                                "name"
-                            ]
-                        }
-                    ]
+                    "ValueTags": [
+                        "Text"
+                    ],
+                    "Title": {
+                        "Origin": "Name",
+                        "Pools": [
+                            {
+                                "Language": "Polish",
+                                "Pool": [
+                                    "imię",
+                                    "nazwa"
+                                ]
+                            },
+                            {
+                                "Language": "English",
+                                "Pool": [
+                                    "username",
+                                    "name"
+                                ]
+                            }
+                        ]
+                    }
                 },
                 {
-                    "Origin": "Surname",
-                    "Pools": [
-                        {
-                            "Language": "Polish",
-                            "Pool": [
-                                "nazwisko",
-                                "godność"
-                            ]
-                        },
-                        {
-                            "Language": "English",
-                            "Pool": [
-                                "surname"
-                            ]
-                        }
-                    ]
+                    "ValueTags": [
+                        "Text"
+                    ],
+                    "Title": {
+                        "Origin": "Surname",
+                        "Pools": [
+                            {
+                                "Language": "Polish",
+                                "Pool": [
+                                    "nazwisko",
+                                    "godność"
+                                ]
+                            },
+                            {
+                                "Language": "English",
+                                "Pool": [
+                                    "surname"
+                                ]
+                            }
+                        ]
+                    }
                 }
             ]
         }

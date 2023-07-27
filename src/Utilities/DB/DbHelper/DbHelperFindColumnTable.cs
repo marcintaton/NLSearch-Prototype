@@ -11,27 +11,8 @@ using NLSearchWeb.src.NLSE.StringDistance;
 namespace NLSearchWeb.src.Utilities.DB
 {
     // describes database structure
-    public class DbHelper
+    public partial class DbHelper
     {
-        public static DBMock DBStructure { get; set; }
-
-        // public static List<string> tables = new List<string> { "Movies", "Alerts" };
-        // public static string[][] columns = new string[2][] {
-        //     new string[] { "Id", "Title", "Genre", "Premiered" },
-        //     new string[] { "Id", "AlertLevel", "Title", "Message", "TimeCreated", "TimeIssued"}
-        // };
-
-        public static async Task Init()
-        {
-            var dbData = await File.ReadAllTextAsync("src/Data/DBSeed.json");
-
-            var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
-
-            var data = JsonSerializer.Deserialize<DBMock>(dbData);
-
-            DBStructure = data;
-        }
-
         public static List<TokenToTable> CompareTables(string token, string language)
         {
             var results = new List<TokenToTable>();
@@ -42,7 +23,7 @@ namespace NLSearchWeb.src.Utilities.DB
                 {
                     var score = StringCompare.Compare(token, word);
 
-                    results.Add(new TokenToTable(token, table.Title.Origin, score));
+                    results.Add(new TokenToTable(token, table.ToString(), score));
                 }
             }
 
@@ -69,11 +50,11 @@ namespace NLSearchWeb.src.Utilities.DB
             {
                 foreach (var column in table.Columns)
                 {
-                    foreach (var word in column.Pools.Find(p => p.Language == language).Pool)
+                    foreach (var word in column.Title.Pools.Find(p => p.Language == language).Pool)
                     {
                         var score = StringCompare.Compare(token, word);
 
-                        results.Add(new TokenToColumn(token, column.Origin, table.Title.Origin, score));
+                        results.Add(new TokenToColumn(token, column.ToString(), table.ToString(), score));
                     }
                 }
             }
