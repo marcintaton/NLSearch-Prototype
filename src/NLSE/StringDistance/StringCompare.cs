@@ -13,9 +13,9 @@ namespace NLSearchWeb.src.NLSE.StringDistance
         // closer to 1.0 means more similar
         public static float Compare(string a, string b)
         {
-            // return DamerauLevenshtein.GetDistanceNormalized(a, b);
+            return DamerauLevenshtein.GetDistanceNormalized(a, b);
             // return FuzzyMatch.GetDistanceNormalized(a, b);
-            return BagDistance.GetDistanceNormalized(a, b);
+            // return BagDistance.GetDistanceNormalized(a, b);
         }
     }
 }

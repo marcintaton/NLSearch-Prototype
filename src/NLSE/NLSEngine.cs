@@ -72,6 +72,8 @@ namespace NLSearchWeb.src.NLSE
 
             // model
             var models = new List<Model.Model>();
+            var model = new Model.Model();
+            models.Add(model);
 
             foreach (var t in preModel.tables)
             {
@@ -87,7 +89,6 @@ namespace NLSearchWeb.src.NLSE
                         var res = matchingTables.Find(x => x.columnName == c._columnName && x.tableName == t._tableName);
                         if (res == null) continue;
 
-                        var model = new Model.Model();
                         model.binds.Add(new ModelBind
                         {
                             table = t._tableName,
@@ -95,7 +96,6 @@ namespace NLSearchWeb.src.NLSE
                             value = v._value
                         });
 
-                        models.Add(model);
                     }
                 }
             }

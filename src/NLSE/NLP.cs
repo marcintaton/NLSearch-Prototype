@@ -56,7 +56,6 @@ namespace NLSearchWeb.src.NLSE
             nlp.Add(multiPattern);
             // -----------------------------------------------------------------
 
-
             nlp.ProcessSingle(doc);
 
             /// Pull the good shit out
@@ -64,9 +63,26 @@ namespace NLSearchWeb.src.NLSE
 
             var entities = doc.SelectMany(span => span.GetEntities());
 
+
             foreach (var token in entities)
             {
                 poiValues.Add(token.Value);
+                ///
+            }
+
+            // We're adding single words as well, since pattern matching might produce 
+            // garbage n-gram phrases and superseed actual valuable keywords
+            foreach (var sentence in doc)
+            {
+                foreach (var token in sentence)
+                {
+                    // Console.WriteLine(token.Value + " " + token.POS.ToString());
+                    if (token.POS.ToString() == "NOUN"
+                        || token.POS.ToString() == "PROPN"
+                        || token.POS.ToString() == "ADJ"
+                        || token.POS.ToString() == "X")
+                        poiValues.Add(token.Value);
+                }
             }
 
             return poiValues.Distinct().ToList();
