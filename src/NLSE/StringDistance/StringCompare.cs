@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using FuzzySharp;
 using HtmlAgilityPack;
 
-namespace NLSearchWeb.src.Utilities.StringDistance
+namespace NLSearchWeb.src.NLSE.StringDistance
 {
     public class StringCompare
     {

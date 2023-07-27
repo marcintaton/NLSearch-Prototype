@@ -4,11 +4,11 @@ using System.Linq;
 using System.Threading.Tasks;
 using NLSearchWeb.src.NLSE.Model;
 
-namespace NLSearchWeb.src.Utilities
+namespace NLSearchWeb.src.NLSE
 {
     public class QueryBuilder
     {
-        public static string Build(Model model)
+        public static string Build(Model.Model model)
         {
             if (model.binds.Count == 0) return "";
 

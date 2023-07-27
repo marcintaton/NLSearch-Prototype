@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using HtmlAgilityPack;
 using MessagePack.Resolvers;
 using NLSearchWeb.src.NLSE.PreModel;
-using NLSearchWeb.src.Utilities.StringDistance;
+using NLSearchWeb.src.NLSE.StringDistance;
 
 namespace NLSearchWeb.src.Utilities.DB
 {

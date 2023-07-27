@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace NLSearchWeb.src.Utilities.StringDistance
+namespace NLSearchWeb.src.NLSE.StringDistance
 {
     public class BagDistance : IStringComparator
     {

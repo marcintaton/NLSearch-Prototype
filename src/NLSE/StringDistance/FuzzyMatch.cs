@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using FuzzySharp;
 
-namespace NLSearchWeb.src.Utilities.StringDistance
+namespace NLSearchWeb.src.NLSE.StringDistance
 {
     public class FuzzyMatch : IStringComparator
     {
